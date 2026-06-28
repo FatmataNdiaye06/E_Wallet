@@ -13,8 +13,11 @@
 
     $transactions=[];
 
+    do {
+        afficherMenu();
+        $choix= (int)readline(" \n Que voulez vous faire: \n");
+        verifSaisie($transactions, $choix);
+    } while ($choix !==0 );
 
-    afficherMenu();
-    verifSaisie($transactions);
 
 ?>

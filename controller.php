@@ -1,10 +1,7 @@
 <?php 
 
-     function verifSaisie(array &$transactions){
+     function verifSaisie(array &$transactions, int $choix){
         
-        do {
-        $choix=readline(" \n Que voulez vous faire: \n");
-
             switch ($choix) {
                 case '1':
                     echo "Creation de  Wallet \n";
@@ -37,7 +34,6 @@
                 echo (" Choix invalide, veuillez réessayer \n");
                     break;
             }
-            } while ($choix !=='0' );
     }
 
 
