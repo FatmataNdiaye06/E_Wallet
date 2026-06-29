@@ -11,7 +11,7 @@
 
                 case '2':
                     echo "Faire un depot \n";
-                    faireDepot();
+                    faireDepot($montantVerifier);
                     break;
                 
                 case '3':

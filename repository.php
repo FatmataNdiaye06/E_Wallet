@@ -21,26 +21,37 @@
             $newWallet=saisirWallet();
         }
     }
-    function faireDepot(){
-        global $wallets,$transactions;
-        $telephoneSaisie= readline("Entrez votre numero de telephone: ");
+    // function faireDepot(){
+    //     global $wallets,$transactions;
+    //     $telephoneSaisie= readline("Entrez votre numero de telephone: ");
+    //     foreach ($wallets as $elements => $value) {
+    //         $indexClient=$elements;
+    //         if($value['telephone']==$telephoneSaisie){
+    //                 $solde = readline("Entrer le montant a deposer: ");
+    //                 $wallets[$indexClient]['solde']+=$solde;
+    //                 $newSolde=$wallets[$indexClient]['solde'];
+    //                 $transactions[]=['montant' => $solde,
+    //                                  'client'  => $value['clientName']
+    //                 ];
+    //                 echo("Votre solde est $newSolde \n");
+    //         }
+    //         else {
+    //             echo("Num introuvable \n");
+    //         }
+    //     }
+    // }
+    function faireDepot(int $montantVerifier){
+        global $wallets;
         foreach ($wallets as $elements => $value) {
             $indexClient=$elements;
-            if($value['telephone']==$telephoneSaisie){
-                    $solde = readline("Entrer le montant a deposer: ");
-                    $wallets[$indexClient]['solde']+=$solde;
-                    $newSolde=$wallets[$indexClient]['solde'];
-                    $transactions[]=['montant' => $solde,
-                                     'client'  => $value['clientName']
-                    ];
-                    echo("Votre solde est $newSolde \n");
-            }
-            else {
-                echo("Num introuvable \n");
-            }
-        }
-    }
+            $wallets[$indexClient]['solde']+=$montantVerifier;
+            $newSolde=$wallets[$indexClient]['solde'];
+            $transactions=[$montantVerifier,$indexClient];
 
+            echo("Votre solde est $newSolde \n");
+        }
+        
+    }
      function faireRetrait(){
         global $wallets;
         $telephoneSaisie= readline("Entrez votre numero de telephone: ");

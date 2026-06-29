@@ -1,5 +1,5 @@
 <?php
-
+    require_once "./services.php";
     function verifDonnee(array $newWallet){
         foreach ($newWallet as $elements => $value) {
             if($value==''){
@@ -27,4 +27,23 @@
         }
         return 5;
     }
+
+    function verifNumero(array $wallets, string $saisieTel){
+        foreach ($wallets as $elements => $value) {
+            if($value['telephone']==$saisieTel){
+            return 10;      
+            }
+        }
+        return 5;   
+    }
+    $numeroVerifier=verifNumero($wallets,$saisieTel);
+    function verifierMontant(int $montantSaisie){
+        if($montantSaisie>0){
+            echo('vrai');
+            return $montantSaisie;
+        }
+        return 5;
+    }
+    $montantVerifier=verifierMontant($montantSaisie);
+    
 ?>
